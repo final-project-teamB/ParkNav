@@ -43,12 +43,9 @@ jobs:
         echo "${{ secrets.PROPERTIES_DEV }}" >> ./application.properties 
       shell: bash
       
-      ## gradle build
+       ## gradle build
     - name: Build with Gradle
-      run: 
-        chmod +x ./gradlew
-        
-        ./gradlew build
+      run: ./gradlew bootJar
 
       # Spring 어플리케이션 Docker Image 빌드
     - name: Docker build & push to ci-cd-tests
